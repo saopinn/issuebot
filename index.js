@@ -1,6 +1,6 @@
 const tmi = require('tmi.js');
 const config = require('./config.js');
-
+const os = require('os');
 
 const client = new tmi.Client({
         options: { debug: true },
