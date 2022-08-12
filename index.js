@@ -86,7 +86,7 @@ client.on('message', (channel, tags, message, self) => {
         
                 //----------------------------------
         
-                client.say('fistissue', `pong! FeelsDankMan Running Issuebot v0.1; Uptime: ${uptimetrue}; RAM usage: ${ramfree.toFixed(2)} GB; Temperature: placeholder;`);
+                client.say(channel, `pong! FeelsDankMan Running Issuebot v0.1; Uptime: ${uptimetrue}; RAM usage: ${os.freemem()} B / ${os.totalmem()} B;`);
                 
             }
 

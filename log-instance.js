@@ -52,8 +52,20 @@ client.on('message', (channel, tags, message, self) => {
         // const totalram = totalRAM /s (1024 * 1024) * 0.001;
         // console.log(totalram);
 
-        const freeRAM = os.freemem();
-        const ramfree = freeRAM / (1024 * 1024) * 0.001;
+         const freeRAM = os.freemem();
+         const ramfree = freeRAM / (1024 * 1024) * 0.001;
+
+         var mbUsed = process.memoryUsage().heapUsed / 1024 / 1024;
+         mbUsed = Math.round(mbUsed * 100) / 100;
+
+         var mbTotal = process.memoryUsage().heapTotal / 1024 / 1024;
+         mbTotal = Math.round(mbTotal * 100) / 100;
+
+         const arr = [1, 2, 3, 4, 5, 6, 9, 7, 8, 9, 10];
+         arr.reverse();
+         const used = process.memoryUsage().heapUsed / 1024 / 1024;
+
+           
 
         //----------------------------------
         
@@ -68,9 +80,14 @@ client.on('message', (channel, tags, message, self) => {
 
         //----------------------------------
 
-        client.say('fistissue', `pong! FeelsDankMan Running Issuebot v0.1p; Uptime: ${uptimetrue}; RAM usage: ${ramfree.toFixed(2)} GB; Temperature: placeholder;`);
+
+
+        // client.say('fistissue', `pong! FeelsDankMan Running Issuebot v0.1p; Uptime: ${uptimetrue}; RAM usage: ${mbUsed}GB/${mbTotal}GB; Temperature: placeholder;`);
+        // client.say('fistissue', `pong! FeelsDankMan Running Issuebot v0.1; Uptime: ${uptimetrue}; RAM usage: ${ramfree.toFixed(2)} GB; Temperature: placeholder;`);
+        client.say('fistissue', `pong! FeelsDankMan Running Issuebot v0.1p; Uptime: ${uptimetrue}; RAM usage: ${Math.round(used * 100) / 100} MB; Temperature: placeholder;`);
         
     }
 });
 
 
+// округление .toFixed(2)
