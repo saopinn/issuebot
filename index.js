@@ -64,15 +64,6 @@ client.on('message', (channel, tags, message, self) => {
                 const uptimetrue = format(uptime);
         
                 //----------------------------------
-        
-                // const totalRAM = os.totalmem();
-                // const totalram = totalRAM /s (1024 * 1024) * 0.001;
-                // console.log(totalram);
-        
-                const freeRAM = os.freemem();
-                const ramfree = freeRAM / (1024 * 1024) * 0.001;
-        
-                //----------------------------------
                 
                 //open it on rpi when it will be on rpi FeelsDankMan
                 
