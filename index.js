@@ -1,6 +1,7 @@
 const tmi = require('tmi.js');
 const config = require('./config.js');
 const os = require('os');
+const si = require('systeminformation');
 
 const client = new tmi.Client({
         options: { debug: true },
@@ -63,21 +64,7 @@ client.on('message', (channel, tags, message, self) => {
                 const uptime = process.uptime();
                 const uptimetrue = format(uptime);
         
-                //----------------------------------
-                
-                //open it on rpi when it will be on rpi FeelsDankMan
-                
-                /*var spawn = require('child_process').spawn;
-        
-                temp = spawn('cat', ['/sys/class/thermal/thermal_zone1/temp']);
-        
-                temp.stdout.on('data', function(data) {*/
-        
-                // add ${temp} to temperature
-        
-                //----------------------------------
-        
-                client.say(channel, `pong! FeelsDankMan Running Issuebot v0.1; Uptime: ${uptimetrue}; RAM usage: ${os.freemem()} B / ${os.totalmem()} B;`);
+                client.say(channel, `pong! FeelsDankMan Running Issuebot v0.1; Uptime: ${uptimetrue}; RAM usage: ${Math.floor(os.freemem() * 0.000001)} MB / ${Math.floor(os.totalmem() * 0.000001 )} MB; Temp. : ${si.cpuTemperature()}`);
                 
             }
 
