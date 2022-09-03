@@ -29,7 +29,7 @@ client.on('message', (channel, tags, message, self) => {
         if (tags['user-id'] === "555579413" && message === "monkaGIGAftSaj 🚨 НАЗАР АУДАРЫҢЫЗ!") {
 		const emote = ['VisLaud', 'monkaS', 'lol', 'AREYOUAFISH', 'vdwxjeio4r5nro8wo4fcmmmMMmoq9fs83', 'ome', 'GREDDYSS', 'bruhSit', 'bruh'];
 		const random = emote[Math.floor(Math.random() * emote.length)];
-                client.say(channel, `${random} 🚨`)
+                client.say(channel, `${random} 🚨 `)
         }
         
         //------------------------------------------------------------------------
@@ -64,9 +64,9 @@ client.on('message', (channel, tags, message, self) => {
                 const uptime = process.uptime();
                 const uptimetrue = format(uptime);
         
-                client.say(channel, `pong! FeelsDankMan Running Issuebot v0.1; Uptime: ${uptimetrue}; RAM usage: ${Math.floor(os.freemem() * 0.000001)} MB / ${Math.floor(os.totalmem() * 0.000001 )} MB; Temp. : ${si.cpuTemperature()}`);
+                client.say(channel, `pong! FeelsDankMan Uptime: ${uptimetrue}; RAM usage: ${Math.floor(os.freemem() /** 0.000001*/)} B / ${Math.floor(os.totalmem() /** 0.000001*/ )} B;`);
                 
-            }
+        }
 
 });
 

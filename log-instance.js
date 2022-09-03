@@ -46,47 +46,9 @@ client.on('message', (channel, tags, message, self) => {
         const uptime = process.uptime();
         const uptimetrue = format(uptime);
 
-        //----------------------------------
-
-        // const totalRAM = os.totalmem();
-        // const totalram = totalRAM /s (1024 * 1024) * 0.001;
-        // console.log(totalram);
-
-         const freeRAM = os.freemem();
-         const ramfree = freeRAM / (1024 * 1024) * 0.001;
-
-         var mbUsed = process.memoryUsage().heapUsed / 1024 / 1024;
-         mbUsed = Math.round(mbUsed * 100) / 100;
-
-         var mbTotal = process.memoryUsage().heapTotal / 1024 / 1024;
-         mbTotal = Math.round(mbTotal * 100) / 100;
-
-         const arr = [1, 2, 3, 4, 5, 6, 9, 7, 8, 9, 10];
-         arr.reverse();
-         const used = process.memoryUsage().heapUsed / 1024 / 1024;
-
-           
-
-        //----------------------------------
+        client.say(channel, `pong! FeelsDankMan Running Issuebot v0.1; Uptime: ${uptimetrue}; RAM usage: ${Math.floor(os.freemem() /** 0.000001*/)} MB / ${Math.floor(os.totalmem() * 0.000001 )} MB; Temp. : ${si.cpuTemperature()}`);
         
-        //open it on rpi when it will be on rpi FeelsDankMan
-        /*var spawn = require('child_process').spawn;
-
-        temp = spawn('cat', ['/sys/class/thermal/thermal_zone1/temp']);
-
-        temp.stdout.on('data', function(data) {*/
-
-        // add ${temp} to temperature
-
-        //----------------------------------
-
-
-
-        // client.say('fistissue', `pong! FeelsDankMan Running Issuebot v0.1p; Uptime: ${uptimetrue}; RAM usage: ${mbUsed}GB/${mbTotal}GB; Temperature: placeholder;`);
-        // client.say('fistissue', `pong! FeelsDankMan Running Issuebot v0.1; Uptime: ${uptimetrue}; RAM usage: ${ramfree.toFixed(2)} GB; Temperature: placeholder;`);
-        client.say('fistissue', `pong! FeelsDankMan Running Issuebot v0.1p; Uptime: ${uptimetrue}; RAM usage: ${Math.round(used * 100) / 100} MB; Temperature: placeholder;`);
-        
-    }
+}
 });
 
 
