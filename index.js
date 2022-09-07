@@ -3,6 +3,8 @@ const config = require('./config.js');
 const os = require('os');
 const si = require('systeminformation');
 const humanize= require("humanize-duration");
+const fs = require('fs');
+
 
 
 const client = new tmi.Client({
@@ -60,12 +62,17 @@ client.on('message', (channel, tags, message, self) => {
                     var seconds = Math.floor(seconds % 60);
                   
                     return pad(hours) + ':' + pad(minutes) + ':' + pad(seconds);
+
+                    
                 }
                   
                 const uptime = process.uptime();
                 const uptimetrue = format(uptime);
 
-                client.say(channel, `pong! FeelsDankMan Uptime: ${uptimetrue}; RAM usage: ${Math.floor(os.freemem() /** 0.000001*/)} B / ${Math.floor(os.totalmem() /** 0.000001*/ )} B;`);
+                var temp = fs.readFileSync("/sys/class/thermal/thermal_zone0/temp");
+                var temp_c = temp/1000;
+
+                client.say(channel, `pong! FeelsDankMan Uptime: ${uptimetrue}; RAM usage: ${Math.floor(os.freemem() /** 0.000001*/)} B / ${Math.floor(os.totalmem() /** 0.000001*/ )} B; Temperature: ${temp_c}°C`);
         }
 
 });
