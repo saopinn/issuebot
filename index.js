@@ -41,13 +41,13 @@ client.on('message', (channel, tags, message, self) => {
                 }
         }
 
-        if (message === "Monkeos") {
+        /*if (message === "Monkeos") {
                 if(tags['user-id'] === "555579413"){
                          return;
                 } else {
-                        client.say(channel, "Monkeos у")
+                        client.say(channel, "Monkeos")
                 }
-        }
+        }*/
 
         if (message === "{ping") {
                 function format(seconds){
@@ -65,9 +65,6 @@ client.on('message', (channel, tags, message, self) => {
                 const uptime = process.uptime();
                 const uptimetrue = format(uptime);
 
-                
-                        
-        
                 client.say(channel, `pong! FeelsDankMan Uptime: ${uptimetrue}; RAM usage: ${Math.floor(os.freemem() /** 0.000001*/)} B / ${Math.floor(os.totalmem() /** 0.000001*/ )} B;`);
         }
 
