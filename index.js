@@ -5,6 +5,11 @@ const si = require('systeminformation');
 const humanize= require("humanize-duration");
 const fs = require('fs');
 
+const express = require("express");
+const app = express();
+const PORT = process.env.PORT || 3030;
+
+
 
 
 const client = new tmi.Client({
@@ -75,5 +80,9 @@ client.on('message', (channel, tags, message, self) => {
                 client.say(channel, `pong! FeelsDankMan Uptime: ${uptimetrue}; RAM usage: ${Math.floor(os.freemem() /** 0.000001*/)} B / ${Math.floor(os.totalmem() /** 0.000001*/ )} B; Temperature: ${temp_c}°C`);
         }
 
+});
+
+app.listen(PORT, () => {
+  console.log(`server started on port ${PORT}`);
 });
 
