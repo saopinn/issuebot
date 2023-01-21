@@ -8,8 +8,8 @@ const fetch = require('fs');
 const client = new tmi.Client({
         options: { debug: true },
         identity: {
-                username: process.env.BOT_NAME,
-                password: process.env.TOKEN
+                username: BOT_NAME,
+                password: TOKEN
         },
         channels: [ 'saopin_', 'fistissue', 'ilotterytea' ]
 });
