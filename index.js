@@ -1,5 +1,5 @@
 const tmi = require('tmi.js');
-const config = require('./config.js');
+
 const os = require('os');
 const si = require('systeminformation');
 const humanize= require("humanize-duration");
