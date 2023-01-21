@@ -4,12 +4,16 @@ const os = require('os');
 const si = require('systeminformation');
 const humanize= require("humanize-duration");
 const fs = require('fs');
+<<<<<<< Updated upstream
 
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3030;
 
 
+=======
+const fetch = require('fs');
+>>>>>>> Stashed changes
 
 
 const client = new tmi.Client({
@@ -26,6 +30,8 @@ client.on('connected', (channel) => {
 	client.say('fistissue', `peepoArrive`);
 });
 
+
+        
 client.on('message', (channel, tags, message, self) => {
         
         // ignore
@@ -56,6 +62,17 @@ client.on('message', (channel, tags, message, self) => {
                 }
         }*/
 
+        if (message === "{players") {
+
+        const getReddit = async () => {
+                const response = await fetch('https://reddit.com/');
+                const body = await response.text();
+                console.log(body); // prints a chock full of HTML richness
+                return body;
+        };
+        
+        }
+
         if (message === "{ping") {
                 function format(seconds){
                     function pad(s){
@@ -74,11 +91,32 @@ client.on('message', (channel, tags, message, self) => {
                 const uptime = process.uptime();
                 const uptimetrue = format(uptime);
 
-                var temp = fs.readFileSync("/sys/class/thermal/thermal_zone0/temp");
-                var temp_c = temp/1000;
+                /*var temp = fs.readFileSync("/sys/class/thermal/thermal_zone0/temp");
+                var temp_c = temp/1000;*/
 
-                client.say(channel, `pong! FeelsDankMan Uptime: ${uptimetrue}; RAM usage: ${Math.floor(os.freemem() /** 0.000001*/)} B / ${Math.floor(os.totalmem() /** 0.000001*/ )} B; Temperature: ${temp_c}°C`);
+                client.say(channel, `pong! FeelsDankMan Uptime: ${uptimetrue}; RAM usage: ${Math.floor(os.freemem() /** 0.000001*/)} B / ${Math.floor(os.totalmem() /** 0.000001*/ )} B;`);
+                /*Temperature: ${temp_c}°C*/
         }
+        
+        /*const util = require('minecraft-server-util');
+
+        const options = {
+        timeout: 1000 * 5, // timeout in milliseconds
+        enableSRV: true // SRV record lookup
+        };
+
+        // The port and options arguments are optional, the
+        // port will default to 25565 and the options will
+        // use the default options.
+        util.status('play.hypixel.net', 25565, options)
+        .then((result) => console.log(result))
+        .catch((error) => console.error(error));*/
+
+        
+        
+        
+
+        
 
 });
 
