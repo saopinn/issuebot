@@ -2,7 +2,6 @@ const tmi = require('tmi.js');
 const os = require('os');
 const si = require('systeminformation');
 const humanize= require("humanize-duration");
-const fs = require('fs');
 const fetch = require('fs');
 
 
