@@ -5,9 +5,7 @@ const si = require('systeminformation');
 const humanize= require("humanize-duration");
 const fs = require('fs');
 
-const express = require("express");
-const app = express();
-const PORT = process.env.PORT || 3030;
+
 
 
 const fetch = require('fs');
@@ -16,8 +14,8 @@ const fetch = require('fs');
 const client = new tmi.Client({
         options: { debug: true },
         identity: {
-                username: BOT_NAME,
-                password: TOKEN
+                username: process.env.BOT_NAME,
+                password: process.env.TOKEN
         },
         channels: [ 'saopin_', 'fistissue', 'ilotterytea' ]
 });
