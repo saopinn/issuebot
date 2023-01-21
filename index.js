@@ -1,15 +1,8 @@
 const tmi = require('tmi.js');
-
 const os = require('os');
 const si = require('systeminformation');
 const humanize= require("humanize-duration");
 const fs = require('fs');
-
-/*const express = require("express");
-const app = express();
-const PORT = process.env.PORT || 3030;*/
-
-
 const fetch = require('fs');
 
 
@@ -117,7 +110,4 @@ client.on('message', (channel, tags, message, self) => {
 
 });
 
-/*app.listen(PORT, () => {
-  console.log(`server started on port ${PORT}`);
-});*/
 
