@@ -3,13 +3,11 @@ const os = require('os');
 const si = require('systeminformation');
 const humanize = require("humanize-duration");
 const fetch = require('fs');
+const config = require('/etc/secrets/config.js')
 
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3030;
-
-
-
 
 const client = new tmi.Client({
         options: { debug: true },
