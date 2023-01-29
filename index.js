@@ -1,4 +1,8 @@
 const tmi = require('tmi.js');
+<<<<<<< Updated upstream
+=======
+const config = require('config.js')
+>>>>>>> Stashed changes
 const os = require('os');
 const si = require('systeminformation');
 const humanize = require("humanize-duration");
